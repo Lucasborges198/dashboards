@@ -1,0 +1,174 @@
+:root {
+  --banana-yellow: #facc15;
+  --banana-dark: #1c1917;
+  --banana-light: #fef9c3;
+  --font-fun: 'Fredoka', sans-serif;
+  --bouncy: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--banana-light);
+  color: var(--banana-dark);
+  font-family: var(--font-fun);
+  padding: 2rem;
+  overflow-x: hidden;
+}
+
+.peel-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Header */
+.fun-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  background: white;
+  padding: 1.5rem 2.5rem;
+  border-radius: 40px;
+  box-shadow: 0 10px 30px rgba(250, 204, 21, 0.2);
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--banana-dark);
+  letter-spacing: -1px;
+}
+
+.toggle-switch {
+  background: var(--banana-dark);
+  color: var(--banana-yellow);
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s var(--bouncy);
+}
+
+.toggle-switch:hover {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+/* Grid */
+.fruit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.card {
+  background: white;
+  border-radius: 36px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  transition: all 0.5s var(--bouncy);
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(250, 204, 21, 0.15);
+}
+
+/* Hero */
+.hero-stat {
+  grid-column: span 2;
+  background: var(--banana-yellow);
+}
+
+.emoji-bg {
+  position: absolute;
+  right: -20px;
+  bottom: -40px;
+  font-size: 10rem;
+  opacity: 0.2;
+  transform: rotate(15deg);
+  transition: transform 0.6s var(--bouncy);
+}
+
+.hero-stat:hover .emoji-bg {
+  transform: rotate(0deg) scale(1.1);
+}
+
+.hero-stat h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.hero-stat h2 {
+  font-size: 4.5rem;
+  font-weight: 700;
+  letter-spacing: -2px;
+  margin-bottom: 1.5rem;
+}
+
+.pill {
+  display: inline-block;
+  background: var(--banana-dark);
+  color: white;
+  padding: 0.5rem 1.25rem;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+/* Rankings & Weather */
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.ranking {
+  list-style: none;
+}
+
+.ranking li {
+  margin-bottom: 1rem;
+}
+
+.ranking span {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.bar-wrap {
+  background: #f1f5f9;
+  height: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bar {
+  height: 100%;
+  background: var(--banana-yellow);
+  border-radius: 10px;
+  transform-origin: left;
+  animation: grow 1.5s var(--bouncy);
+}
+
+.temp {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+@keyframes grow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "lucas-high-agency-portfolio",
+  "version": "1.0.0",
+  "description": "Uma biblioteca Premium de Experimentos UI / UX e Dashboards High-Agency",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "start": "npx serve -s dist -p 8080",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "ui",
+    "ux",
+    "high-agency",
+    "dashboards",
+    "portfolio",
+    "frontend"
+  ],
+  "author": "Lucas Borges",
+  "license": "MIT",
+  "dependencies": {
+    "antigravity": "^0.0.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-router-dom": "^7.14.2"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "prettier": "^3.8.3",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.10"
+  }
+}
