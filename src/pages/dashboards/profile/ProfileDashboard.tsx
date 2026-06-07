@@ -55,7 +55,7 @@ export const ProfileDashboard: React.FC = () => {
           </div>
           <div className="avatar-container">
             {/* The image points to the old relative path, assuming it's in public or we can fix it later */}
-            <img src="/prof-pic.jpg" alt="Lucas Borges" className="profile-photo" />
+            <img src="/images/prof-pic.jpg" alt="Lucas Borges" className="profile-photo" />
           </div>
         </div>
 
