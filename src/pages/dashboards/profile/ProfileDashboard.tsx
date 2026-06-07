@@ -109,14 +109,17 @@ export const ProfileDashboard: React.FC = () => {
             <span className="chip">C</span>
             <span className="chip">Angular</span>
             <span className="chip">React</span>
-            <span className="chip">Next</span>
+            <span className="chip">AI</span>
+            <span className="chip">Devin</span>
+            <span className="chip">Claude</span>
+            <span className="chip">AI CLI</span>
           </div>
         </div>
 
         {/* Stats / Highlights */}
         <div className="bento-box highlight-box span-1">
           <div className="stat">
-            <span className="number">1+</span>
+            <span className="number">3</span>
             <span className="label">Years of Experience</span>
           </div>
           <div className="stat">
