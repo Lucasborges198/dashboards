@@ -313,3 +313,76 @@ button {
   font-weight: 600;
   color: var(--text-main);
 }
+
+/* ─── Tablet (1024px) ─── */
+@media (max-width: 1024px) {
+  .metrics-row {
+    flex-wrap: wrap;
+  }
+
+  .metric-card {
+    flex: 1 1 calc(50% - 0.75rem);
+  }
+
+  .search-box input {
+    width: 200px;
+  }
+}
+
+/* ─── Mobile (768px) ─── */
+@media (max-width: 768px) {
+  .app-layout {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  /* Hide the side-nav, show a top mini bar */
+  .side-nav {
+    display: none;
+  }
+
+  .dashboard {
+    padding: 1.25rem;
+  }
+
+  .topbar {
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .actions button {
+    flex: 1;
+  }
+
+  .metrics-row {
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .metric-card {
+    flex: none;
+    width: 100%;
+  }
+
+  /* Pipeline board stacks vertically */
+  .pipeline-board {
+    flex-direction: column;
+    overflow: visible;
+  }
+
+  .pipeline-col {
+    flex: none;
+    width: 100%;
+  }
+}

@@ -414,3 +414,92 @@ button {
     transform: translateY(0);
   }
 }
+
+/* ─── Tablet (1024px) ─── */
+@media (max-width: 1024px) {
+  .dashboard {
+    grid-template-columns: 200px 1fr;
+  }
+
+  .content {
+    padding: 2rem;
+  }
+
+  .bento-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card.span-2 {
+    grid-column: span 2;
+  }
+}
+
+/* ─── Mobile (768px) ─── */
+@media (max-width: 768px) {
+  body {
+    display: block;
+  }
+
+  .dashboard {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+
+  /* Hide sidebar, show a top mobile bar */
+  .sidebar {
+    display: none;
+  }
+
+  /* Mobile top bar */
+  .dashboard::before {
+    content: '';
+    display: block;
+  }
+
+  .content {
+    padding: 1.25rem;
+    padding-top: 1.5rem;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .action-buttons {
+    width: 100%;
+  }
+
+  .action-buttons button {
+    flex: 1;
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .card.span-2 {
+    grid-column: span 1;
+  }
+
+  /* Table horizontal scroll on mobile */
+  .transactions-card {
+    overflow-x: auto;
+  }
+
+  .transaction-table {
+    min-width: 480px;
+  }
+
+  .transaction-table th,
+  .transaction-table td {
+    padding: 0.75rem 0;
+  }
+}

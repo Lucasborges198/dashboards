@@ -177,3 +177,50 @@ body {
     opacity: 0.5;
   }
 }
+
+/* ─── Tablet (1024px) ─── */
+@media (max-width: 1024px) {
+  .games-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .mega-title {
+    font-size: 3.5rem;
+  }
+}
+
+/* ─── Mobile (768px) ─── */
+@media (max-width: 768px) {
+  body {
+    padding: 1.25rem;
+  }
+
+  .masthead {
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .mega-title {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+    letter-spacing: -1px;
+  }
+
+  .games-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .card-inner {
+    padding: 1.5rem;
+  }
+
+  .rank {
+    font-size: 2rem;
+  }
+
+  .system-logs {
+    padding: 1rem;
+  }
+}
