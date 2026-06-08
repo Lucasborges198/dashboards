@@ -172,3 +172,64 @@ h3 {
     transform: scaleX(1);
   }
 }
+
+/* ─── Tablet (1024px) ─── */
+@media (max-width: 1024px) {
+  .fruit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stat {
+    grid-column: span 1;
+  }
+}
+
+/* ─── Mobile (768px) ─── */
+@media (max-width: 768px) {
+  body {
+    padding: 1.25rem;
+  }
+
+  .fun-header {
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 28px;
+    margin-bottom: 1.5rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .fruit-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .hero-stat {
+    grid-column: span 1;
+  }
+
+  .hero-stat h2 {
+    font-size: 3.5rem;
+  }
+
+  .card {
+    padding: 1.75rem;
+    border-radius: 28px;
+  }
+
+  .emoji-bg {
+    font-size: 7rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .temp {
+    font-size: 2.25rem;
+  }
+}

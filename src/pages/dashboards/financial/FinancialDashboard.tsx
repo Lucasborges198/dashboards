@@ -10,6 +10,15 @@ export const FinancialDashboard: React.FC = () => {
 
   return (
     <div className="dashboard">
+      {/* CSS-only mobile hamburger toggle */}
+      <input type="checkbox" id="nav-toggle" className="nav-toggle-input" />
+      <label htmlFor="nav-toggle" className="hamburger" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <label htmlFor="nav-toggle" className="nav-overlay"></label>
+
       <aside className="sidebar">
         <div className="logo">
           <div className="logo-mark"></div>

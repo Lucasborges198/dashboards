@@ -234,3 +234,77 @@ body {
     max-width: 100%;
   }
 }
+
+@media (max-width: 768px) {
+  body {
+    padding: 1.25rem;
+  }
+
+  .editorial-header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .meta-label {
+    margin-bottom: 1rem;
+  }
+
+  .monumental-title {
+    font-size: clamp(3rem, 12vw, 5rem);
+    margin-bottom: 1.25rem;
+  }
+
+  .lede {
+    font-size: clamp(1rem, 4vw, 1.3rem);
+  }
+
+  .grid-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .span-2,
+  .span-3,
+  .span-all {
+    grid-column: auto;
+  }
+
+  .stat-block {
+    padding: 1rem;
+  }
+
+  .zones-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .zone-item {
+    padding-right: 0;
+  }
+
+  .z-value {
+    font-size: 2rem;
+  }
+
+  .insight-text {
+    font-size: 1.3rem;
+    max-width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .interactive-panel {
+    padding: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .panel-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .zones-section {
+    margin-top: 2rem;
+    padding-top: 2rem;
+  }
+}
