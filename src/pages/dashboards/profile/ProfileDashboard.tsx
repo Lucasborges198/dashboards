@@ -13,7 +13,7 @@ export const ProfileDashboard: React.FC = () => {
       <div className="glow-bg"></div>
       <nav className="top-nav">
         <Link to="/" className="back-link">
-          &larr; Voltar ao Menu
+          &larr; Back to Menu
         </Link>
         <div className="status-pill">
           <span className="dot"></span> Open to Work

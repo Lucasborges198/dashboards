@@ -42,6 +42,13 @@ body {
   margin: 0 auto;
 }
 
+/* Hide mobile-only elements on desktop */
+.nav-toggle-input,
+.hamburger,
+.nav-overlay {
+  display: none;
+}
+
 /* Sidebar */
 .sidebar {
   background: var(--bg-secondary);
@@ -445,20 +452,105 @@ button {
     grid-template-rows: auto 1fr;
   }
 
-  /* Hide sidebar, show a top mobile bar */
-  .sidebar {
+  /* Hide the checkbox itself */
+  .nav-toggle-input {
     display: none;
   }
 
-  /* Mobile top bar */
-  .dashboard::before {
-    content: '';
+  /* Hamburger button — fixed top-left */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 200;
+    padding: 0.65rem 0.75rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    transition: left 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                background 0.2s ease,
+                border-color 0.2s ease;
+  }
+
+  .hamburger span {
     display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center;
+  }
+
+  /* Animate to ✕ when open */
+  .nav-toggle-input:checked ~ .hamburger span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle-input:checked ~ .hamburger span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .nav-toggle-input:checked ~ .hamburger span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* When drawer is open: slide button to the right edge of the 260px sidebar */
+  .nav-toggle-input:checked ~ .hamburger {
+    left: 272px;
+    background: rgba(10, 10, 15, 0.85);
+    border-color: transparent;
+    backdrop-filter: none;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .nav-toggle-input:checked ~ .hamburger span {
+    background: var(--text-primary);
+  }
+
+  /* Backdrop overlay */
+  .nav-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    z-index: 150;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-toggle-input:checked ~ .nav-overlay {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  /* Sidebar becomes a fixed drawer */
+  .sidebar {
+    display: flex;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    z-index: 175;
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4);
+  }
+
+  .nav-toggle-input:checked ~ .sidebar {
+    transform: translateX(0);
   }
 
   .content {
     padding: 1.25rem;
-    padding-top: 1.5rem;
+    padding-top: 4.5rem;
   }
 
   header {
@@ -474,6 +566,7 @@ button {
 
   .action-buttons {
     width: 100%;
+    display: flex;
   }
 
   .action-buttons button {

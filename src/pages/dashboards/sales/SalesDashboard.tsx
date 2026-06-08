@@ -10,6 +10,15 @@ export const SalesDashboard: React.FC = () => {
 
   return (
     <div className="app-layout">
+      {/* CSS-only mobile hamburger toggle */}
+      <input type="checkbox" id="nav-toggle" className="nav-toggle-input" />
+      <label htmlFor="nav-toggle" className="hamburger" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+      <label htmlFor="nav-toggle" className="nav-overlay"></label>
+
       <nav className="side-nav">
         <div className="brand">S.</div>
         <div className="nav-links">
@@ -39,8 +48,7 @@ export const SalesDashboard: React.FC = () => {
           </a>
         </div>
         <div className="user-avatar">
-          {/* Assuming unnamed.jpg will be at root or handled correctly */}
-          <img src="/unnamed.jpg" alt="User" />
+          <img src="https://i.pravatar.cc/100?img=33" alt="User" />
         </div>
       </nav>
 

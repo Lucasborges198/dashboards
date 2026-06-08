@@ -35,6 +35,13 @@ body {
   height: 100vh;
 }
 
+/* Hide mobile-only elements on desktop */
+.nav-toggle-input,
+.hamburger,
+.nav-overlay {
+  display: none;
+}
+
 /* Nav */
 .side-nav {
   width: 72px;
@@ -337,13 +344,129 @@ button {
     min-height: 100vh;
   }
 
-  /* Hide the side-nav, show a top mini bar */
-  .side-nav {
+  /* Hide the checkbox itself */
+  .nav-toggle-input {
     display: none;
+  }
+
+  /* Hamburger button — fixed top-left */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 200;
+    padding: 0.65rem 0.75rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    transition: left 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                background 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text-main);
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center;
+  }
+
+  /* Animate to ✕ when open */
+  .nav-toggle-input:checked ~ .hamburger span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle-input:checked ~ .hamburger span:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .nav-toggle-input:checked ~ .hamburger span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  /* When drawer is open: slide button to the right edge of the drawer */
+  .nav-toggle-input:checked ~ .hamburger {
+    left: 212px;
+    background: rgba(0, 0, 0, 0.5);
+    border-color: transparent;
+    box-shadow: none;
+    border-radius: 0 8px 8px 0;
+  }
+
+  .nav-toggle-input:checked ~ .hamburger span {
+    background: white;
+  }
+
+  /* Backdrop overlay */
+  .nav-overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 150;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .nav-toggle-input:checked ~ .nav-overlay {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  /* Side-nav becomes a fixed drawer */
+  .side-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 200px;
+    height: 100vh;
+    z-index: 175;
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem 1rem;
+  }
+
+  .nav-toggle-input:checked ~ .side-nav {
+    transform: translateX(0);
+  }
+
+  /* Expand nav links to fill the wider drawer */
+  .nav-links {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .nav-links a {
+    width: 100%;
+    height: auto;
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .brand {
+    margin-bottom: 2rem;
   }
 
   .dashboard {
     padding: 1.25rem;
+    padding-top: 4.5rem;
   }
 
   .topbar {
@@ -358,6 +481,7 @@ button {
 
   .actions {
     width: 100%;
+    display: flex;
   }
 
   .actions button {
