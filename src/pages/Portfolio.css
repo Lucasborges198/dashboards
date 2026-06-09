@@ -25,6 +25,7 @@ body {
     100% 100%,
     40px 40px,
     40px 40px;
+  /* background-attachment: fixed causes visual glitches on mobile browsers */
   background-attachment: fixed;
 }
 
@@ -188,6 +189,8 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .card-title {
@@ -303,7 +306,7 @@ h1 {
 /* Grid Layout for experiments */
 .dashboard-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(450px, 100%), 1fr));
   gap: 2rem;
 }
 
@@ -337,20 +340,14 @@ h1 {
   .hero-card {
     padding: 2rem;
   }
-
-  .bottom-info {
-    flex-direction: column;
-    gap: 2rem;
-    align-items: flex-start;
-  }
-
-  .hero-card .bottom-info {
-    flex-direction: row;
-    align-items: flex-end;
-  }
 }
 
 @media (max-width: 768px) {
+  body {
+    /* Disable fixed attachment on mobile — causes scroll glitches in mobile browsers */
+    background-attachment: scroll;
+  }
+
   .container {
     padding: 8vh 1.25rem 4rem;
   }
@@ -368,9 +365,17 @@ h1 {
     gap: 1.25rem;
   }
 
+  /* Grid cards: keep title + arrow in a row so arrow stays aligned */
   .grid-card {
-    height: 240px;
-    padding: 1.75rem;
+    height: auto;
+    min-height: 200px;
+    padding: 1.5rem;
+  }
+
+  .grid-card .bottom-info {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
   }
 
   .card-title {
@@ -380,12 +385,28 @@ h1 {
   .hero-card {
     padding: 1.5rem;
     margin-bottom: 3rem;
-    min-height: 220px;
+    min-height: auto;
+  }
+
+  /* Hero card meta: allow pill + label to wrap to next line if too tight */
+  .hero-card .card-meta {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  /* Hero card bottom: title + giant arrow stay in row but wrap if needed */
+  .hero-card .bottom-info {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
   }
 
   .giant-title {
-    font-size: clamp(2rem, 8vw, 3rem);
+    font-size: clamp(1.75rem, 8vw, 3rem);
     margin-top: 1.25rem;
+    /* Ensure gradient text clip doesn't cut off characters */
+    padding-bottom: 2px;
   }
 
   .hero-desc {
@@ -393,20 +414,14 @@ h1 {
   }
 
   .giant-arrow {
-    width: 56px;
-    height: 56px;
+    width: 52px;
+    height: 52px;
     font-size: 1.5rem;
+    flex-shrink: 0;
   }
 
-  .bottom-info {
-    flex-direction: column;
-    gap: 1.5rem;
-    align-items: flex-start;
-  }
-
-  .hero-card .bottom-info {
-    flex-direction: row;
-    align-items: flex-end;
+  .arrow {
+    flex-shrink: 0;
   }
 
   .card-meta {
@@ -427,5 +442,44 @@ h1 {
     width: 400px;
     height: 400px;
     top: -200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 6vh 1rem 3rem;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .hero-card {
+    padding: 1.25rem;
+  }
+
+  .giant-title {
+    font-size: clamp(1.5rem, 10vw, 2.5rem);
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+
+  .giant-arrow {
+    width: 44px;
+    height: 44px;
+    font-size: 1.25rem;
+  }
+
+  .arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .status-pill {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.6rem;
   }
 }
